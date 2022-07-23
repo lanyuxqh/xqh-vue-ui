@@ -1,5 +1,5 @@
 <div style="align: center">
-  <img src="./public/favicon.ico"/>
+  <img src="https://raw.githubusercontent.com/lanyuxqh/xqh-vue-ui/main/public/favicon.ico"/>
 </div>
 
 # xqh-vue-ui 组件库
