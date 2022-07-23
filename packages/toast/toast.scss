@@ -1,0 +1,136 @@
+@import '../style/var.scss';
+
+@keyframes pushToast-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pushToast-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pushToast-middle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes pushToast-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pushToast-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+$font-size: 14px;
+$toast-min-height: 40px;
+$toast-bg: rgba(0, 0, 0, 0.75);
+.wrapper {
+  position: fixed;
+  z-index: 20;
+  &.toast-position-top {
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
+    .x-toast {
+      animation: pushToast-top 0.5s;
+    }
+  }
+  &.toast-position-bottom {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    .x-toast {
+      animation: pushToast-bottom 0.5s;
+    }
+  }
+  &.toast-position-middle {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .x-toast {
+      animation: pushToast-middle 1s;
+    }
+  }
+  &.toast-position-left {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    .x-toast {
+      animation: pushToast-left 0.5s;
+    }
+  }
+  &.toast-position-right {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    .x-toast {
+      animation: pushToast-right 0.5s;
+    }
+  }
+}
+.x-toast {
+  font-size: $font-size;
+  color: white;
+  min-height: $toast-min-height;
+  line-height: 1.8;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  background: $toast-bg;
+  border-radius: 4px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  .message {
+    padding: 8px 0;
+  }
+  .line {
+    height: 100%;
+    border-left: 1px solid white;
+    margin: 0 1.5em;
+  }
+  .close {
+    flex-shrink: 0;
+  }
+  &.x-toast-default {
+    background: $primaryColor;
+  }
+  &.x-toast-info {
+    background: $infoColor;
+  }
+  &.x-toast-success {
+    background: $successColor;
+  }
+  &.x-toast-warning {
+    background: $warningColor;
+  }
+  &.x-toast-danger {
+    background: $dangerColor;
+  }
+}

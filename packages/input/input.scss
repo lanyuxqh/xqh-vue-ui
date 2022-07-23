@@ -1,0 +1,119 @@
+@import '../style/var.scss';
+.x-input {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  input {
+    width: 240px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    background-color: #ffffff;
+    color: #575757;
+    &:hover {
+      cursor: pointer;
+      border: 1px solid $primaryColor;
+    }
+    &:focus {
+      border: 1px solid $primaryColor;
+      outline: none;
+      // box-shadow: inset -1px 0px 2px $primaryColor, inset 1px 1px 1px $primaryColor;
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      background: #f7f7fa;
+      border: 1px solid #e5e5ea;
+    }
+    &::placeholder {
+      color: #8e8e93;
+    }
+  }
+  &-lg {
+    input {
+      font-size: 16px;
+      padding: 10px 12px;
+    }
+  }
+  &-md {
+    input {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  }
+  &-sm {
+    input {
+      padding: 5px 12px;
+    }
+  }
+  &-xs {
+    input {
+      font-size: 12px;
+      padding: 2px 12px;
+    }
+  }
+}
+
+@mixin icon($sizeType) {
+  $lg: 15.5px;
+  $md: 14.5px;
+  $sm: 13.5px;
+  $xs: 12px;
+  &.x-input-#{$sizeType} {
+    @if $sizeType == 'lg' {
+      .x-icon {
+        width: $lg !important;
+        height: $lg !important;
+      }
+    }
+    @if $sizeType == 'md' {
+      .x-icon {
+        width: $md !important;
+        height: $md !important;
+      }
+    }
+    @if $sizeType == 'sm' {
+      .x-icon {
+        width: $sm !important;
+        height: $sm !important;
+      }
+    }
+    @if $sizeType == 'xs' {
+      .x-icon {
+        width: $xs !important;
+        height: $xs !important;
+      }
+    }
+  }
+}
+.x-input-prefix-icon {
+  input {
+    padding-left: 26px;
+  }
+  .x-icon {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  @include icon('lg');
+  @include icon('md');
+  @include icon('sm');
+  @include icon('xs');
+}
+.x-input-suffix-icon {
+  input {
+    padding-right: 26px;
+  }
+  .x-icon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  @include icon('lg');
+  @include icon('md');
+  @include icon('sm');
+  @include icon('xs');
+}

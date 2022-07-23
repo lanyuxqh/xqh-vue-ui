@@ -1,0 +1,61 @@
+@import '../style/var.scss';
+
+@for $i from 1 through 24 {
+  .x-col-#{$i} {
+    width: $i/24 * 100%;
+  }
+  .x-col-offset-#{$i} {
+    margin-left: $i/24 * 100%;
+  }
+}
+
+@include res(xs) {
+  @for $i from 1 through 24 {
+    .x-col-xs-#{$i} {
+      width: $i/24 * 100%;
+    }
+    .x-col-xs-offset-#{$i} {
+      margin-left: $i/24 * 100%;
+    }
+  }
+}
+@include res(sm) {
+  @for $i from 1 through 24 {
+    .x-col-sm-#{$i} {
+      width: $i/24 * 100%;
+    }
+    .x-col-sm-offset-#{$i} {
+      margin-left: $i/24 * 100%;
+    }
+  }
+}
+@include res(md) {
+  @for $i from 1 through 24 {
+    .x-col-md-#{$i} {
+      width: $i/24 * 100%;
+    }
+    .x-col-md-offset-#{$i} {
+      margin-left: $i/24 * 100%;
+    }
+  }
+}
+@include res(lg) {
+  @for $i from 1 through 24 {
+    .x-col-lg-#{$i} {
+      width: $i/24 * 100%;
+    }
+    .x-col-lg-offset-#{$i} {
+      margin-left: $i/24 * 100%;
+    }
+  }
+}
+@include res(xl) {
+  @for $i from 1 through 24 {
+    .x-col-xl-#{$i} {
+      width: $i/24 * 100%;
+    }
+    .x-col-xl-offset-#{$i} {
+      margin-left: $i/24 * 100%;
+    }
+  }
+}

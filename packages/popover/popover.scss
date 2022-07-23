@@ -1,0 +1,41 @@
+.x-popover {
+  // display: inline-block;
+  // vertical-align: top;
+  position: relative;
+  .content-wrapper {
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 4px;
+    position: absolute;
+    padding: 0.5em 1em;
+    max-width: 20em;
+    word-wrap: break-word;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+    &::before,
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      position: absolute;
+    }
+    &.position-top {
+      margin-top: -10px;
+      transform: translateY(-100%);
+      &::before,
+      &::after {
+        left: 10px;
+      }
+      &::before {
+        border-bottom: none;
+        border-top-color: #999;
+        top: 100%;
+      }
+      &::after {
+        border-bottom: none;
+        border-top-color: white;
+        top: calc(100% - 1px);
+      }
+    }
+  }
+}

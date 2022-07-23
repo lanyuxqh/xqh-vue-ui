@@ -1,0 +1,52 @@
+@import '../style/var.scss';
+
+.x-date-picker {
+  display: inline-block;
+  .x-date-content {
+    position: absolute;
+    z-index: 10;
+    user-select: none;
+    width: 280px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px $primaryColor, -1px -1px 2px $primaryColor;
+    .x-date-picker-header {
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 8px;
+      .x-icon {
+        width: 18px;
+        height: 18px;
+      }
+      .x-icon,
+      b {
+        cursor: pointer;
+      }
+    }
+    .cell {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+    }
+  }
+  .isSelect {
+    color: #fff;
+    background-color: $primaryColor;
+    border-radius: 50%;
+  }
+  .isToday {
+    font-weight: bold;
+    color: $primaryColor;
+    background-color: #fff;
+  }
+  .isNotCurrentMonth {
+    color: #ccc;
+  }
+  .cell-date:hover:not(.isNotCurrentMonth):not(.isSelect) {
+    color: $primaryColor;
+  }
+}

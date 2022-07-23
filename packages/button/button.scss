@@ -1,0 +1,249 @@
+@import '../style/var.scss';
+@import '../style/animation.scss';
+
+.x-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: 0.1s;
+  font-weight: 400;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  border-radius: 6px;
+  border: 0;
+
+  &-hasicon {
+    padding: 10px !important;
+  }
+
+  .x-button-icon {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .x-button-icon + span {
+    margin-left: 5px;
+  }
+
+  &-left {
+    svg {
+      order: 1;
+    }
+    span {
+      order: 2;
+    }
+  }
+
+  &-right {
+    svg {
+      order: 2;
+    }
+    span {
+      order: 1;
+    }
+    .x-button-icon + span {
+      margin-left: 0;
+      margin-right: 5px;
+    }
+  }
+}
+
+@mixin x-button-colors($color, $type) {
+  background: $color;
+  color: $color;
+  @if $type== 'default' {
+    background: transparent;
+    border: 1px solid $color;
+    &:focus,
+    &:hover {
+      background: mix($white, $color, 90%);
+      border: 1px solid mix($white, $color, 20%);
+      color: $color;
+    }
+    .x-icon {
+      fill: $color !important;
+    }
+  }
+  @if $type== 'primary' {
+    border: none;
+    color: $white;
+    &:focus,
+    &:hover {
+      background: mix($white, $color, 30%);
+    }
+    &:active {
+      background: mix($black, $color, 5%);
+    }
+    &:disabled {
+      background: mix($white, $color, 40%);
+      &:focus,
+      &:hover {
+        background-color: mix($white, $color, 40%);
+        outline: none;
+      }
+    }
+    .x-icon {
+      fill: $white !important;
+    }
+  }
+  @if $type== 'link' {
+    background: none;
+    border: none;
+    .x-icon {
+      fill: $color !important;
+    }
+  }
+  @if $type== 'ghost' {
+    background: #ffffff;
+    border: 1px solid $color;
+    .x-icon {
+      fill: $color !important;
+    }
+  }
+  @if $type== 'delicate' {
+    background: none;
+    border: none;
+    .x-icon {
+      fill: $color !important;
+    }
+  }
+}
+
+.x-button-type-default {
+  @include x-button-colors($primaryColor, 'default');
+}
+
+.x-button-type-primary {
+  @include x-button-colors($primaryColor, 'primary');
+  border: none;
+  color: $white !important;
+}
+
+.x-button-type-link {
+  @include x-button-colors($primaryColor, 'link');
+}
+
+.x-button-type-ghost {
+  @include x-button-colors($primaryColor, 'ghost');
+}
+
+.x-button-type-delicate {
+  @include x-button-colors($delicateColor, 'delicate');
+}
+
+.x-button-type-default.x-button-status-success {
+  @include x-button-colors($successColor, 'default');
+}
+
+.x-button-type-default.x-button-status-info {
+  @include x-button-colors($infoColor, 'default');
+}
+
+.x-button-type-default.x-button-status-warning {
+  @include x-button-colors($warningColor, 'default');
+}
+
+.x-button-type-default.x-button-status-danger {
+  @include x-button-colors($dangerColor, 'default');
+}
+
+.x-button-type-primary.x-button-status-success {
+  @include x-button-colors($successColor, 'primary');
+}
+
+.x-button-type-primary.x-button-status-info {
+  @include x-button-colors($infoColor, 'primary');
+}
+
+.x-button-type-primary.x-button-status-warning {
+  @include x-button-colors($warningColor, 'primary');
+}
+
+.x-button-type-primary.x-button-status-danger {
+  @include x-button-colors($dangerColor, 'primary');
+}
+
+.x-button-type-link.x-button-status-success {
+  @include x-button-colors($successColor, 'link');
+}
+
+.x-button-type-link.x-button-status-info {
+  @include x-button-colors($infoColor, 'link');
+}
+
+.x-button-type-link.x-button-status-warning {
+  @include x-button-colors($warningColor, 'link');
+}
+
+.x-button-type-link.x-button-status-danger {
+  @include x-button-colors($dangerColor, 'link');
+}
+
+.x-button-type-ghost.x-button-status-success {
+  @include x-button-colors($successColor, 'ghost');
+}
+
+.x-button-type-ghost.x-button-status-info {
+  @include x-button-colors($infoColor, 'ghost');
+}
+
+.x-button-type-ghost.x-button-status-warning {
+  @include x-button-colors($warningColor, 'ghost');
+}
+
+.x-button-type-ghost.x-button-status-danger {
+  @include x-button-colors($dangerColor, 'ghost');
+}
+
+.x-button-shape-square {
+  border-radius: 6px;
+}
+
+.x-button-shape-round {
+  border-radius: 18px;
+}
+
+.x-button-shape-circle {
+  border-radius: 50%;
+  padding: 0;
+}
+
+.x-button-size-lg {
+  padding: $lg;
+  font-size: 16px;
+}
+
+.x-button-size-md {
+  padding: $md;
+  font-size: 15px;
+}
+
+.x-button-size-sm {
+  padding: $sm;
+  font-size: 14px;
+}
+
+.x-button-size-xs {
+  padding: $xs;
+  font-size: 12px;
+}
+
+.x-button-disabled {
+  background-color: #f7f7fa;
+  cursor: not-allowed;
+  &:focus,
+  &:hover {
+    background-color: #f7f7fa;
+    outline: none;
+  }
+}

@@ -1,0 +1,74 @@
+.x-modal {
+  position: fixed;
+  overflow: auto;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  .x-modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #272c36;
+    opacity: 0.3;
+  }
+  .x-modal-content {
+    position: relative;
+    background-color: #fff;
+    opacity: 1;
+    border-radius: 6px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 0 10px rgba(0, 0, 0, 0.06);
+    padding: 20px;
+    margin: 30px auto 0;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      span {
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.85);
+      }
+      .x-icon {
+        cursor: pointer;
+        fill: #888 !important;
+        height: 20px !important;
+      }
+    }
+    .footer {
+      display: flex;
+      justify-content: flex-end;
+      .x-button + .x-button {
+        margin-left: 8px;
+      }
+    }
+  }
+}
+.x-modal-xs {
+  .x-modal-content {
+    width: 400px;
+  }
+}
+.x-modal-sm {
+  .x-modal-content {
+    width: 600px;
+  }
+}
+.x-modal-md {
+  .x-modal-content {
+    width: 800px;
+  }
+}
+.x-modal-lg {
+  .x-modal-content {
+    width: 1000px;
+  }
+}
+
+.x-enter-active {
+  transition: opacity 0.5s;
+}
+.x-enter {
+  opacity: 0;
+}

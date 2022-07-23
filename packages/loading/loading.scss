@@ -1,0 +1,19 @@
+@import '../style//var.scss';
+@import '../style/mixin.scss';
+
+.x-loading {
+  @include position();
+  .x-loading-curtain {
+    @include position();
+  }
+  .x-loading-icon {
+    position: absolute;
+    color: $primaryColor;
+    z-index: 10;
+    @include flexCenter;
+    @include position();
+    :nth-child(1) {
+      margin-bottom: 6px;
+    }
+  }
+}

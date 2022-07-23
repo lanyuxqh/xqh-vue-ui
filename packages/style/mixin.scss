@@ -1,0 +1,16 @@
+
+@mixin position($position: absolute, $long: 0) {
+  margin: auto;
+  position: $position;
+  top: $long;
+  left: $long;
+  right: $long;
+  bottom: $long;
+}
+
+@mixin flexCenter($direction: column) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}

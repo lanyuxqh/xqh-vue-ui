@@ -1,0 +1,33 @@
+@import '../style/var.scss';
+
+.x-badge {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  .x-badge-content {
+    background-color: $dangerColor;
+    color: $white;
+    border-radius: 10px;
+    display: inline-block;
+    font-size: 12px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 6px;
+    border: 1px solid $white;
+    &.is-dot {
+      height: 8px;
+      width: 8px;
+      padding: 0;
+      border-radius: 50%;
+    }
+    &.is-fixed {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      transform: translate(50%, -50%);
+    }
+  }
+}

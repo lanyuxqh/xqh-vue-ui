@@ -1,0 +1,15 @@
+@import "//at.alicdn.com/t/font_3437780_evng4e3hjup.css";
+
+.x-icon {
+  font-family: "x-icon" !important;
+  display: inline-block;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.x-icon--right {
+  margin-left: 5px;
+}
+

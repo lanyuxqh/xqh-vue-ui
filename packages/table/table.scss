@@ -1,0 +1,59 @@
+@import '../style/var.scss';
+.fix-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.table-wrapper {
+  box-sizing: border-box;
+  overflow-y: auto; // scroll
+}
+.x-table {
+  position: relative;
+  background: #ffffff;
+  border: #ebebeb 1px solid;
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+  }
+  th {
+    background: #ffffff;
+    color: #8e8e93;
+  }
+  th,
+  td {
+    border-bottom: 1px solid #f2f2f5;
+    padding: 8px;
+    text-align: left;
+  }
+  .x-table-cell {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    > span:first-child {
+      margin-right: 6px;
+    }
+  }
+  .sortable {
+    display: flex;
+    flex-direction: column;
+    .x-icon {
+      width: 12px !important;
+      height: 12px !important;
+      cursor: pointer;
+      &.active {
+        fill: $primaryColor !important;
+      }
+    }
+  }
+  tbody {
+    tr {
+      color: #575757;
+      &:hover {
+        cursor: pointer;
+        background: #f2faff;
+      }
+    }
+  }
+}

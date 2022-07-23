@@ -1,0 +1,19 @@
+@keyframes rotating {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes pass {
+  0% {
+      transform: rotate(-45deg) translate(0px);
+  }
+
+  100% {
+      transform: rotate(-45deg) translate(2000px);
+  }
+}

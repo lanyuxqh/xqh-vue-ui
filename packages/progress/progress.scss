@@ -1,0 +1,38 @@
+.x-progress {
+  .x-progress-bar {
+    width: 100%;
+    padding: 8px 12px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    .x-progress-bar-outer {
+      width: 95%;
+      border-radius: 5px;
+      .x-progress-bar-inner {
+        height: 100%;
+        width: 100%;
+        .x-progress-bar-bg {
+          position: relative;
+          border-radius: 5px;
+          height: 100%;
+        }
+      }
+    }
+    .x-progress-info {
+      padding-left: 10px;
+      width: 5%;
+      color: #575757;
+    }
+  }
+  .x-progress-circle {
+    position: relative;
+    .x-progress-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(0, 0, 0, 0.65);
+      line-height: 1;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+@import '../style/var.scss';
+
+@mixin genTheme($typeColor, $backgroundColorWeight, $borderColorWeight, $fontColorWeight) {
+  background-color: mix($typeColor, $white, $backgroundColorWeight);
+  border-color: mix($typeColor, $white, $borderColorWeight);
+  color: mix($typeColor, $white, $fontColorWeight);
+
+  .x-tag-close {
+    fill: mix($typeColor, $white, $fontColorWeight) !important;
+  }
+}
+
+.x-tag {
+  display: inline-block;
+  height: 32px;
+  padding: 0 10px;
+  line-height: 32px;
+  font-size: 12px;
+  border: 1px solid;
+  border-radius: 4px;
+  white-space: nowrap;
+  .x-tag-close {
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 12px;
+    height: 16px !important;
+    line-height: 16px;
+    vertical-align: middle;
+    top: -1px;
+    right: -5px;
+  }
+  &.x-tag-primary {
+    @include genTheme($primaryColor, 10%, 20%, 100%);
+  }
+  &.x-tag-success {
+    @include genTheme($successColor, 10%, 20%, 100%);
+  }
+  &.x-tag-info {
+    @include genTheme($infoColor, 10%, 20%, 100%);
+  }
+  &.x-tag-warning {
+    @include genTheme($warningColor, 10%, 20%, 100%);
+  }
+  &.x-tag-danger {
+    @include genTheme($dangerColor, 10%, 20%, 100%);
+  }
+  &.x-tag-md {
+    height: 28px;
+    line-height: 28px;
+    .x-tag-close {
+      transform: scale(0.8);
+    }
+  }
+  &.x-tag-sm {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 8px;
+    .x-tag-close {
+      transform: scale(0.8);
+    }
+  }
+  &.x-tag-xs {
+    height: 20px;
+    line-height: 20px;
+    padding: 0 5px;
+    .x-tag-close {
+      margin-left: -3px;
+      transform: scale(0.7);
+    }
+  }
+}
+
+.x-zoom-in-center-enter-active,
+.x-zoom-in-center-leave-active {
+  transition: all .3s cubic-bezier(.55,0,.1,1);
+}
+.x-zoom-in-center-enter,
+.x-zoom-in-center-leave-active {
+  opacity: 0;
+  transform: scaleX(0);
+}

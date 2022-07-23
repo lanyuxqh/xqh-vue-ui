@@ -1,0 +1,8 @@
+@import '../style/animation.scss';
+
+.x-icon {
+  vertical-align: middle;
+  &.x-icon-loading {
+    animation: rotating 1s infinite linear;
+  }
+}
