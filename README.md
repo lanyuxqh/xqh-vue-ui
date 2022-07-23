@@ -1,10 +1,8 @@
-<div style="align: center">
-  <img src="https://raw.githubusercontent.com/lanyuxqh/xqh-vue-ui/main/public/favicon.ico"/>
-</div>
+![icon](https://raw.githubusercontent.com/lanyuxqh/xqh-vue-ui/main/public/favicon.ico)
 
 # xqh-vue-ui 组件库
 
-用 vue 写的组件库，包含 Button, Input, Select, Grid 等常见 UI 组件。
+用 vue 写的组件库，包含 Button，Input，Select，Grid 等常见 UI 组件。
 
 [xqh-vue-ui 使用文档](https://lanyuxqh.github.io/xqh-vue-ui-doc/)
 
@@ -16,7 +14,12 @@
 
 ```
 npm install xqh-vue-ui
+```
 
+or
+
+```
+yarn add xqh-vue-ui
 ```
 
 ### 引入
@@ -33,7 +36,7 @@ Vue.use(xqhVueUI);
 
 ### 按需引用
 
-#### 可以根据个人需要按需引用组件来使用
+#### 可以根据个人需要按需引用组件来使用。
 
 ```
 import { xButton, xInput } from 'xqh-vue-ui'
