@@ -29,17 +29,45 @@ yarn add xqh-vue-ui
 ```
 import Vue from 'vue';
 import xqhVueUI from 'xqh-vue-ui';
-import 'xqh-vue-ui/dist/xqh-vue-ui.css';
+import 'xqh-vue-ui/lib/index/style.css';
 
 Vue.use(xqhVueUI);
 ```
 
 ### 按需引用
 
-#### 可以根据个人需要按需引用组件来使用。
+#### 可以根据个人需要按需引用组件来使用。搭配 `babel-plugin-import`使用更方便哦
+
+1. 安装依赖
 
 ```
-import { xButton, xInput } from 'xqh-vue-ui'
+npm install babel-plugin-import -D
+```
+
+2. 配置 babel.config.js ，这样不用手动引入按需引用的组件的样式文件了。
+
+```
+module.exports = {
+  presets: ['@vue/cli-plugin-babel/preset'],
+  plugins: [
+    [
+      'import',
+      {
+        libraryName: 'xqh-vue-ui',
+        style: name => {
+          return `${name}/style.css`
+        },
+      }
+    ]
+  ]
+}
+```
+
+3. 引入需要的组件即可。
+
+```
+import { xButton } from 'xqh-vue-ui'
+Vue.use(xButton)
 ```
 
 ### 开始使用~~
