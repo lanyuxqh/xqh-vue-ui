@@ -1,8 +1,8 @@
 {
   "name": "xqh-vue-ui",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
-  "main": "dist/xqh-vue-ui.umd.min.js",
+  "main": "lib/index/index.js",
   "author": {
     "name": "xqh",
     "CSDN": "RM懵倩。",
@@ -12,12 +12,15 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "test": "karma start",
-    "lib": "vue-cli-service build --target lib --name xqh-vue-ui  packages/index.js"
+    "test": "cross-env BABEL_ENV=test karma start tests/unit/karma.conf.js",
+    "lib": "vue-cli-service build --target lib --name xqh-vue-ui  packages/index.js",
+    "lib:build": "vue-cli-service build"
   },
   "dependencies": {
     "core-js": "^3.8.3",
     "lodash": "^4.17.21",
+    "sinon": "^14.0.0",
+    "sinon-chai": "^3.7.0",
     "v-click-outside": "^3.2.0",
     "vue": "^2.6.14"
   },
@@ -28,10 +31,13 @@
     "@vue/cli-plugin-unit-mocha": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/test-utils": "^1.3.0",
+    "babel-plugin-istanbul": "^6.1.1",
     "chai": "^4.2.0",
+    "cross-env": "^7.0.3",
     "karma": "^6.3.20",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.1",
+    "karma-coverage": "^2.2.0",
     "karma-mocha": "^2.0.1",
     "karma-sourcemap-loader": "^0.3.8",
     "karma-spec-reporter": "0.0.34",

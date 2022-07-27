@@ -143,7 +143,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import "../style/var.scss";
+@import "@/style/var.scss";
 .x-fade-in-enter-active,
 .x-fade-in-leave-active {
   transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);

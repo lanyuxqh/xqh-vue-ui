@@ -2,11 +2,11 @@ src
 packages
 public
 tests
+config
 node_modules
 .DS_Store
 .git
 babel.config.js 
-karma.conf.js
 server.js
 vue.config.js
 jsconfig.json

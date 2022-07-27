@@ -1,4 +1,4 @@
-@import '../style/var.scss';
+@import '@/style/var.scss';
 
 @mixin genTheme($typeColor, $backgroundColorWeight, $borderColorWeight, $fontColorWeight) {
   background-color: mix($typeColor, $white, $backgroundColorWeight);

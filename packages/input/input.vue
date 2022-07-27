@@ -11,8 +11,10 @@
 </template>
 <script>
 import classNames from "@/utils/classNames";
+import XIcon from '../icon/icon.vue'
 export default {
   name: 'XInput',
+  components: { XIcon },
   props: {
     type: {
       type: String,

@@ -8,8 +8,10 @@
   </div>
 </template>
 <script>
+import XIcon from '../icon/icon.vue'
 export default {
   name: 'XLoading',
+  components: { XIcon },
   props: {
     curtainColor: {
       type: String,

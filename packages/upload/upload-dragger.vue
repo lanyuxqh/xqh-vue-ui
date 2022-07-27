@@ -53,7 +53,7 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-@import "../style/var.scss";
+@import "@/style/var.scss";
 .upload-dragger {
   width: 300px;
   height: 160px;

@@ -1,5 +1,8 @@
 module.exports = {
-  presets: [
-    '@vue/cli-plugin-babel/preset'
-  ]
+  "presets": [["@babel/env", { "modules": false }]],
+  env: {
+    test: {
+      plugins: ['istanbul']
+    }
+  }
 }

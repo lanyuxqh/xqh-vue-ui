@@ -1,5 +1,5 @@
-@import '../style//var.scss';
-@import '../style/mixin.scss';
+@import '@/style//var.scss';
+@import '@/style/mixin.scss';
 
 .x-loading {
   @include position();

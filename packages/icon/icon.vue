@@ -22,9 +22,11 @@ export default {
       default: 24
     }
   },
-  // mounted () {
-  //   require('../style/icon');
-  // },
+  mounted () {
+    //   require('../style/icon');
+    require('@/style/icon.js') // svg
+    require('@/style/xqh-icon.js') // svg
+  },
 }
 </script>
 

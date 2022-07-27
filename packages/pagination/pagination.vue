@@ -103,7 +103,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import "../style/var.scss";
+@import "@/style/var.scss";
 .x-pagination li {
   list-style: none;
   display: inline-flex;

@@ -1,58 +1,55 @@
 // import './style/fonts/iconfont.css'  // iconfont
 // import './style/fonts/icon.css'  // iconfont cdn-link
-import './style/icon.js' // svg
-import './style/xqh-icon.js' // svg
+import '@/style/icon.js' // svg
+import '@/style/xqh-icon.js' // svg
 
 // 所有组件的入口
-import XIcon from './icon/icon.vue'
-import XRow from './row/row.vue'
-import XCol from './col/col.vue'
-import XContainer from './container/container.vue'
-import XHeader from './container/header.vue'
-import XFooter from './container/footer.vue'
-import XMain from './container/main.vue'
-import XAside from './container/aside.vue'
-import XButton from './button/button.vue'
-import XButtonGroup from './button-group/button-group.vue'
-import XInput from './input/input.vue'
-import XInputNumber from './input-number/input-number.vue'
-import XDatePicker from './date-picker/date-picker.vue'
-import XProgress from './progress/progress.vue'
-import XUpload from './upload/upload.vue'
-import XTable from './table/table.vue'
-import XPagination from './pagination/pagination.vue'
-import XPopover from './popover/popover.vue'
-import XTab from './tab/tab.vue'
-import XTabPane from './tab/tab-pane.vue'
-import XToast from './toast/toast.js'
-import XCollapse from './collapse/collapse.vue'
-import XCollapseItem from './collapse/collapse-item.vue'
-import XSpread from './spread/spread.vue'
-import XCarousel from './carousel/carousel.vue'
-import XCarouselItem from './carousel/carousel-item.vue'
-import XInfiniteScroll from './infinite-scroll/infinite-scroll.js'
-import XGoTopBottom from './go-top-bottom/go-top-bottom'
-import XRadio from './radio/radio.vue'
-import XRadioGroup from './radio/radio-group.vue'
-import XCheckbox from './checkbox/checkbox.vue'
-import XCheckboxGroup from './checkbox/checkbox-group'
-import XSwitch from './switch/switch.vue'
-import XBadge from './badge/badge.vue'
-import XRate from './rate/rate.vue'
-import XLoading from './loading/loading.js'
-import XSkeleton from './skeleton/skeleton.vue'
-import XLazy from './lazy/lazy.js'
-import XAlert from './alert/alert.vue'
-import XModal from './modal/modal.vue'
-import XDrawer from './drawer/drawer.vue'
-import XCard from './card/card.vue'
-import XTag from './tag/tag.vue'
-import XAvatar from './avatar/avatar.vue'
-import XList from './list/list.vue'
-import XDivider from './divider/divider.vue'
-import XSelect from './select/select.vue'
-import XSpace from './space/space.vue'
-import XTextarea from './textarea/textarea.vue'
+import XIcon from './icon'
+import XRow from './row'
+import XCol from './col'
+import XContainer from './container'
+import XHeader from './header'
+import XFooter from './footer'
+import XMain from './main'
+import XAside from './aside'
+import XButton from './button'
+import XButtonGroup from './button-group'
+import XInput from './input'
+import XInputNumber from './input-number'
+import XDatePicker from './date-picker'
+import XProgress from './progress'
+import XUpload from './upload'
+import XTable from './table'
+import XPagination from './pagination'
+import XPopover from './popover'
+import XTab from './tab'
+import XToast from './toast'
+import XCollapse from './collapse'
+import XSpread from './spread'
+import XCarousel from './carousel'
+import XInfiniteScroll from './infinite-scroll'
+import XGoTopBottom from './go-top-bottom'
+import XRadio from './radio'
+import XRadioGroup from './radio-group'
+import XCheckbox from './checkbox'
+import XCheckboxGroup from './checkbox-group'
+import XSwitch from './switch'
+import XBadge from './badge'
+import XRate from './rate'
+import XLoading from './loading'
+import XSkeleton from './skeleton'
+import XLazy from './lazy'
+import XAlert from './alert'
+import XModal from './modal'
+import XDrawer from './drawer'
+import XCard from './card'
+import XTag from './tag'
+import XAvatar from './avatar'
+import XList from './list'
+import XDivider from './divider'
+import XSelect from './select'
+import XSpace from './space'
+import XTextarea from './textarea'
 
 const components = [
   XIcon,
@@ -74,12 +71,9 @@ const components = [
   XPagination,
   XPopover,
   XTab,
-  XTabPane,
   XCollapse,
-  XCollapseItem,
   XSpread,
   XCarousel,
-  XCarouselItem,
   XGoTopBottom,
   XRadio,
   XRadioGroup,
@@ -99,18 +93,19 @@ const components = [
   XDivider,
   XSelect,
   XSpace,
-  XTextarea
+  XTextarea,
+  XLoading,
+  XToast,
+  XInfiniteScroll,
+  XLazy
 ]
 
 // 全局注册组件
 const install = Vue => {
+  if (install.installed) return
   components.forEach(c => {
-    Vue.component(c.name, c)
+    Vue.use(c)
   })
-  Vue.use(XToast)
-  Vue.use(XLoading)
-  Vue.directive(XInfiniteScroll.name, XInfiniteScroll)
-  Vue.directive(XLazy.name, XLazy)
 }
 
 // const req = require.context('@/icons/svg', false, /\.svg$/)
@@ -124,5 +119,51 @@ if (typeof Window.Vue !== 'undefined') {
 }
 
 export default {
-  install
+  install,
+  XIcon,
+  XRow,
+  XCol,
+  XContainer,
+  XHeader,
+  XFooter,
+  XMain,
+  XAside,
+  XButton,
+  XButtonGroup,
+  XInput,
+  XInputNumber,
+  XDatePicker,
+  XProgress,
+  XUpload,
+  XTable,
+  XPagination,
+  XPopover,
+  XTab,
+  XCollapse,
+  XSpread,
+  XCarousel,
+  XGoTopBottom,
+  XRadio,
+  XRadioGroup,
+  XCheckbox,
+  XCheckboxGroup,
+  XSwitch,
+  XBadge,
+  XRate,
+  XSkeleton,
+  XAlert,
+  XModal,
+  XDrawer,
+  XCard,
+  XTag,
+  XAvatar,
+  XList,
+  XDivider,
+  XSelect,
+  XSpace,
+  XTextarea,
+  XLoading,
+  XToast,
+  XInfiniteScroll,
+  XLazy
 }
