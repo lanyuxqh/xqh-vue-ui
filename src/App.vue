@@ -823,13 +823,30 @@
     <div class="table-demo">
       <h2>table</h2>
       <div class="table-basic">
-        <x-table :columns="columns1" :data="tableData1"></x-table>
+        <x-table :options="tableOptions1"></x-table>
+      </div>
+      <br>
+      <div class="table-size">
+        <x-table :options="tableOptions2" size="sm"></x-table>
+        <br>
+        <x-table :options="tableOptions2" size="xs"></x-table>
       </div>
       <br>
       <div class="table-custom">
-        <x-table :columns="columns2" :data="tableData2" height="180px" @on-select="handleSelect" @on-select-all="handleSelectAll">
-          <template slot="action">
-            <x-button @click="handleTableAction">删除</x-button>
+        <x-table :options="tableOptions3" :headStyle="headStyle" :rowStyle="rowStyle" size="sm"></x-table>
+      </div>
+      <br>
+      <div class="table-slot">
+        <x-table :options="tableOptions4">
+          <template v-slot:head-age="{scope}">
+            <div style="color: green">{{ scope.title }}</div>
+          </template>
+          <template v-slot:id="{scope}">
+            <div style="color: #008dff">{{ scope.row.id }}</div>
+          </template>
+          <template v-slot:action="{scope}">
+            <x-button icon="edit" type="primary" :disabled="scope.rowIndex % 2 == 0">编辑</x-button>
+            <x-button icon="delete" status="danger" style="margin-left: 5px" @click="handleDelete(scope.rowIndex)">删除</x-button>
           </template>
         </x-table>
       </div>
@@ -1252,7 +1269,6 @@
       <x-divider></x-divider>
     </div>
 
-    
   </div>
 </template>
 <script>
@@ -1368,98 +1384,164 @@ export default {
         }
       ],
 
-      columns1: [
-        {
-          title: 'Name',
-          key: 'name'
-        },
-        {
-          title: 'Age',
-          key: 'age'
-        },
-        {
-          title: 'Address',
-          key: 'address'
-        }
-      ],
-      tableData1: [
-        {
-          name: 'John Brown',
-          age: 18,
-          address: 'New York No. 1 Lake Park',
-          date: '2016-10-03'
-        },
-        {
-          name: 'Joe Black',
-          age: 30,
-          address: 'Sydney No. 1 Lake Park',
-          date: '2016-10-02'
-        },
-        {
-          name: 'Jim Green',
-          age: 24,
-          address: 'London No. 1 Lake Park',
-          date: '2016-10-01'
-        },
-        {
-          name: 'Jon Snow',
-          age: 26,
-          address: 'Ottawa No. 2 Lake Park',
-          date: '2016-10-04'
-        }
-      ],
-      columns2: [
-        {
-          type: 'selection',
-          width: 60
-        },
-        {
-          title: "Name",
-          key: "name",
-          slot: 'name'
-        },
-        {
-          title: "Age",
-          key: "age",
-          sortable: 'normal', // iview  默认排序 排序方法 custom（远程排序）
-          sortType: 'asc',
-        },
-        {
-          title: "Address",
-          key: "address"
-        },
-        {
-          title: 'operator',
-          key: "operator",
-          slot: 'action',
-        }
-      ],
-      tableData2: [
-        {
-          name: "John Brown",
-          age: 18,
-          address: "New York No. 1 Lake Park",
-          date: "2016-10-03"
-        },
-        {
-          name: "Joe Black",
-          age: 30,
-          address: "Sydney No. 1 Lake Park",
-          date: "2016-10-02"
-        },
-        {
-          name: "Jim Green",
-          age: 24,
-          address: "London No. 1 Lake Park",
-          date: "2016-10-01"
-        },
-        {
-          name: "Jon Snow",
-          age: 26,
-          address: "Ottawa No. 2 Lake Park",
-          date: "2016-10-04"
-        }
-      ],
+      // columns1: [
+      //   {
+      //     title: 'Name',
+      //     key: 'name'
+      //   },
+      //   {
+      //     title: 'Age',
+      //     key: 'age'
+      //   },
+      //   {
+      //     title: 'Address',
+      //     key: 'address'
+      //   }
+      // ],
+      // tableData1: [
+      //   {
+      //     name: 'John Brown',
+      //     age: 18,
+      //     address: 'New York No. 1 Lake Park',
+      //     date: '2016-10-03'
+      //   },
+      //   {
+      //     name: 'Joe Black',
+      //     age: 30,
+      //     address: 'Sydney No. 1 Lake Park',
+      //     date: '2016-10-02'
+      //   },
+      //   {
+      //     name: 'Jim Green',
+      //     age: 24,
+      //     address: 'London No. 1 Lake Park',
+      //     date: '2016-10-01'
+      //   },
+      //   {
+      //     name: 'Jon Snow',
+      //     age: 26,
+      //     address: 'Ottawa No. 2 Lake Park',
+      //     date: '2016-10-04'
+      //   }
+      // ],
+      // columns2: [
+      //   {
+      //     type: 'selection',
+      //     width: 60
+      //   },
+      //   {
+      //     title: "Name",
+      //     key: "name",
+      //     slot: 'name'
+      //   },
+      //   {
+      //     title: "Age",
+      //     key: "age",
+      //     sortable: 'normal', // iview  默认排序 排序方法 custom（远程排序）
+      //     sortType: 'asc',
+      //   },
+      //   {
+      //     title: "Address",
+      //     key: "address"
+      //   },
+      //   {
+      //     title: 'operator',
+      //     key: "operator",
+      //     slot: 'action',
+      //   }
+      // ],
+      // tableData2: [
+      //   {
+      //     name: "John Brown",
+      //     age: 18,
+      //     address: "New York No. 1 Lake Park",
+      //     date: "2016-10-03"
+      //   },
+      //   {
+      //     name: "Joe Black",
+      //     age: 30,
+      //     address: "Sydney No. 1 Lake Park",
+      //     date: "2016-10-02"
+      //   },
+      //   {
+      //     name: "Jim Green",
+      //     age: 24,
+      //     address: "London No. 1 Lake Park",
+      //     date: "2016-10-01"
+      //   },
+      //   {
+      //     name: "Jon Snow",
+      //     age: 26,
+      //     address: "Ottawa No. 2 Lake Park",
+      //     date: "2016-10-04"
+      //   }
+      // ],
+
+      tableOptions1: {
+        fileds: [
+          { field: 'id', title: 'ID', align: 'center' },
+          { field: 'name', title: '姓名', align: 'center' },
+          { field: 'age', title: '年龄', align: 'center' },
+          { field: 'address', title: '地址', align: 'center' },
+        ],
+        datas: [
+          { id: 10, name: 'Joe Black', age: '16', address: 'New York No. 1 Lake Park' },
+          { id: 13, name: 'Joe Black', age: '31', address: 'Sydney No. 5 Lake Park' },
+          { id: 2, name: 'Jim Green', age: '25', address: 'London No. 2 Lake Park' },
+          { id: 11, name: 'Jon Snow', age: '18', address: 'Ottawa No. 1 Lake Park' },
+        ]
+      },
+      tableOptions2: {
+        fileds: [
+          { field: 'id', title: 'ID', align: 'center' },
+          { field: 'name', title: '姓名', align: 'center' },
+          { field: 'age', title: '年龄', align: 'center' },
+          { field: 'address', title: '地址', align: 'center' },
+        ],
+        datas: [
+          { id: 10, name: 'Joe Black', age: '16', address: 'New York No. 1 Lake Park' },
+          { id: 13, name: 'Joe Black', age: '31', address: 'Sydney No. 5 Lake Park' },
+          { id: 2, name: 'Jim Green', age: '25', address: 'London No. 2 Lake Park' },
+          { id: 11, name: 'Jon Snow', age: '18', address: 'Ottawa No. 1 Lake Park' },
+        ]
+      },
+      tableOptions3: {
+        fileds: [
+          { field: 'id', title: 'ID', align: 'center' },
+          { field: 'name', title: '姓名', align: 'center' },
+          { field: 'age', title: '年龄', align: 'center' },
+          { field: 'address', title: '地址', align: 'center' },
+        ],
+        datas: [
+          { id: 10, name: 'Joe Black', age: '16', address: 'New York No. 1 Lake Park' },
+          { id: 13, name: 'Joe Black', age: '31', address: 'Sydney No. 5 Lake Park' },
+          { id: 2, name: 'Jim Green', age: '25', address: 'London No. 2 Lake Park' },
+          { id: 11, name: 'Jon Snow', age: '18', address: 'Ottawa No. 1 Lake Park' },
+        ]
+      },
+      headStyle: {
+        color: "#fff",
+        borderColor: "#4c94d1",
+        backgroundColor: "rgba(25,66,120,.9)",
+      },
+      rowStyle: {
+        borderColor: "#4c94d1",
+      },
+      tableOptions4: {
+        fileds: [
+          { field: 'id', title: 'ID', align: 'center' },
+          { field: 'name', title: '姓名', align: 'center' },
+          { field: 'age', title: '年龄', align: 'center' },
+          { field: 'address', title: '地址', align: 'center' },
+          { field: 'action', title: '操作', align: 'center' },
+        ],
+        datas: [
+          { id: 10, name: 'Joe Black', age: '16', address: 'New York No. 1 Lake Park' },
+          { id: 13, name: 'Joe Black', age: '31', address: 'Sydney No. 5 Lake Park' },
+          { id: 2, name: 'Jim Green', age: '25', address: 'London No. 2 Lake Park' },
+          { id: 11, name: 'Jon Snow', age: '18', address: 'Ottawa No. 1 Lake Park' },
+        ]
+      },
 
       listData1: [
         'God finds himself by creating.',
@@ -1604,15 +1686,8 @@ export default {
       console.log('上传失败,', err)
     },
 
-    handleSelect (selection, row) {
-      // selection 表示选中的所有的  row 表示当前是哪一个
-      console.log(selection, row)
-    },
-    handleSelectAll (selection) {
-      console.log(selection)
-    },
-    handleTableAction (e) {
-      console.log(e)
+    handleDelete (index) {
+      this.tableOptions4.datas.splice(index, 1)
     },
 
     handleTagClose (index) {
